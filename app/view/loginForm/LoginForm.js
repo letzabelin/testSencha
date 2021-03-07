@@ -1,22 +1,8 @@
-// Ext.apply(Ext.form.field.VTypes, {
-//   passLogin: function (val, field) {
-//     return val === 'admin';
-//   },
-//   passLoginText: 'Введен неверный логин',
-// });
-
-// Ext.apply(Ext.form.field.VTypes, {
-//   passPassword: function (val, field) {
-//     return val === 'padmin';
-//   },
-//   passPasswordText: 'Введен неверный пароль',
-// });
-
-Ext.define('testSencha.view.form.Form', {
+Ext.define('testSencha.view.loginForm.LoginForm', {
   extend: 'Ext.window.Window',
   xtype: 'loginForm',
-
   controller: 'form',
+
   bodyPadding: 10,
   title: 'Авторизация',
   closable: false,
@@ -30,22 +16,22 @@ Ext.define('testSencha.view.form.Form', {
         xtype: 'textfield',
         name: 'login',
         fieldLabel: 'Логин',
-        // allowBlank: false,
-        // vtype: 'passLogin',
+        allowBlank: false,
+        msgTarget: 'under',
       },
       {
         xtype: 'textfield',
         name: 'password',
         inputType: 'password',
         fieldLabel: 'Пароль',
-        // allowBlank: false,
-        // vtype: 'passPassword',
+        allowBlank: false,
+        msgTarget: 'under',
       },
     ],
     buttons: [
       {
         text: 'Войти',
-        // formBind: true,
+        formBind: true,
         listeners: {
           click: 'login',
         },

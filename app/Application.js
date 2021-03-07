@@ -4,32 +4,36 @@
  * initialization details.
  */
 Ext.define('testSencha.Application', {
-    extend: 'Ext.app.Application',
+  extend: 'Ext.app.Application',
 
-    name: 'testSencha',
+  name: 'testSencha',
 
-    quickTips: false,
-    platformConfig: {
-        desktop: {
-            quickTips: true
-        }
+  requires: ['testSencha.view.main.Main', 'testSencha.view.loginForm.LoginForm'],
+
+  quickTips: false,
+  platformConfig: {
+    desktop: {
+      quickTips: true,
     },
+  },
 
-    stores: [
-        // TODO: add global / shared stores here
-    ],
+  stores: [
+    // TODO: add global / shared stores here
+  ],
 
-    launch: function () {
-        // TODO - Launch the application
-    },
+  launch: function () {
+    const loggedIn = localStorage.getItem('loggedIn');
 
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-            function (choice) {
-                if (choice === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
-    }
+    Ext.create({
+      xtype: loggedIn ? 'app-main' : 'loginForm',
+    });
+  },
+
+  onAppUpdate: function () {
+    Ext.Msg.confirm('Application Update', 'This application has an update, reload?', function (choice) {
+      if (choice === 'yes') {
+        window.location.reload();
+      }
+    });
+  },
 });
