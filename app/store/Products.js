@@ -1,6 +1,8 @@
 Ext.define('testSencha.store.Products', {
   extend: 'Ext.data.Store',
 
+  // model: 'Product',
+
   alias: 'store.products',
 
   fields: ['name', 'description', 'price', 'quantity'],

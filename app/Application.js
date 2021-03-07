@@ -22,10 +22,8 @@ Ext.define('testSencha.Application', {
   ],
 
   launch: function () {
-    const loggedIn = localStorage.getItem('loggedIn');
-
     Ext.create({
-      xtype: loggedIn ? 'app-main' : 'loginForm',
+      xtype: 'loginForm',
     });
   },
 
