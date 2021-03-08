@@ -10,31 +10,30 @@ Ext.define('testSencha.view.loginForm.LoginForm', {
 
   items: {
     xtype: 'form',
-    reference: 'form',
+
+    fieldDefaults: {
+      allowBlank: false,
+      msgTarget: 'under',
+    },
+
     items: [
       {
         xtype: 'textfield',
         name: 'login',
-        fieldLabel: 'Логин',
-        allowBlank: false,
-        msgTarget: 'under',
+        fieldLabel: 'Логин:',
       },
       {
         xtype: 'textfield',
         name: 'password',
         inputType: 'password',
-        fieldLabel: 'Пароль',
-        allowBlank: false,
-        msgTarget: 'under',
+        fieldLabel: 'Пароль:',
       },
     ],
     buttons: [
       {
         text: 'Войти',
         formBind: true,
-        listeners: {
-          click: 'login',
-        },
+        handler: 'login',
       },
     ],
   },

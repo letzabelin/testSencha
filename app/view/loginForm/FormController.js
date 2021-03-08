@@ -8,13 +8,14 @@ Ext.define('testSencha.view.loginForm.FormController', {
     const { login, password } = form;
 
     if (login === 'admin' && password === 'padmin') {
-      this.getView().destroy();
+      const window = this.getView();
+      window.close();
 
       Ext.create({
         xtype: 'app-main',
       });
     } else {
-      Ext.Msg.alert('Status', 'Логин или пароль введены неправильно');
+      Ext.Msg.alert('Ошибка', 'Логин или пароль введены неправильно');
     }
   },
 });

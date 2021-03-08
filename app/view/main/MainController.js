@@ -5,7 +5,11 @@ Ext.define('testSencha.view.main.MainController', {
 
   addTable(btn) {
     const tabPanel = btn.up('app-main').down('tabpanel');
-    tabPanel.setVisible(true);
+    const tabsCount = tabPanel.items.getCount();
+
+    if (tabsCount === 0) {
+      tabPanel.setVisible(true);
+    }
 
     const newTab = {
       title: 'Товары',
@@ -18,7 +22,8 @@ Ext.define('testSencha.view.main.MainController', {
   },
 
   logOut() {
-    this.getView().destroy();
+    const main = this.getView();
+    main.destroy();
 
     Ext.create({
       xtype: 'loginForm',

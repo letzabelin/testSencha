@@ -13,13 +13,7 @@ Ext.define('testSencha.view.table.Table', {
 
   title: 'Список товаров',
 
-  requires: [
-    'testSencha.view.table.TableController',
-    'testSencha.store.Products',
-    'testSencha.view.searchForm.SearchForm',
-  ],
-
-  store: Ext.create('store.products'),
+  store: Ext.create('testSencha.store.Products'),
 
   forceFit: true,
 
@@ -29,17 +23,15 @@ Ext.define('testSencha.view.table.Table', {
     },
   ],
 
+  listeners: {
+    cellmousedown: 'openCard',
+  },
+
   columns: [
     { text: 'Идентификатор', dataIndex: 'id' },
-    {
-      text: 'Наименование',
-      dataIndex: 'name',
-      listeners: {
-        click: 'openCard',
-      },
-    },
+    { text: 'Наименование', dataIndex: 'name' },
     { text: 'Описание', dataIndex: 'description' },
     { text: 'Цена', dataIndex: 'price' },
-    { text: 'Количество', dataIndex: 'quantity', renderer: handleZeroQuantity },
+    { text: 'Кол-во', dataIndex: 'quantity', renderer: handleZeroQuantity },
   ],
 });

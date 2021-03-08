@@ -1,11 +1,12 @@
 Ext.define('testSencha.store.Products', {
   extend: 'Ext.data.Store',
-
-  // model: 'Product',
-
   alias: 'store.products',
 
-  fields: ['name', 'description', 'price', 'quantity'],
+  model: 'testSencha.model.Product',
+
+  autoLoad: true,
+
+  fields: ['id', 'name', 'description', 'price', 'quantity'],
 
   data: {
     products: [
@@ -41,4 +42,19 @@ Ext.define('testSencha.store.Products', {
       rootProperty: 'products',
     },
   },
+
+  // listeners: {
+  //   update(store, record, operation, modifiedFieldNames) {
+  //     if (!modifiedFieldNames) {
+  //       return;
+  //     }
+
+  //     const modifiedField = modifiedFieldNames.toString();
+  //     const mod = record.get(modifiedField);
+
+  //     if (mod && mod.isModel) {
+  //       record.set(modifiedField, mod.get('text'));
+  //     }
+  //   },
+  // },
 });

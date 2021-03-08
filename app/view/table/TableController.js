@@ -3,11 +3,21 @@ Ext.define('testSencha.view.table.TableController', {
 
   alias: 'controller.table',
 
-  openCard(view, el, rowIndex, colIndex, evt, { data }) {
-    console.log(data);
+  openCard(view, cell, cellIndex, record) {
+    if (Number(cellIndex) === 1) {
+      const store = view.getStore();
+      const {
+        data: { name: productName },
+      } = record;
 
-    Ext.create({
-      xtype: 'productCard',
-    });
+      const productForm = Ext.create({
+        xtype: 'productCard',
+        title: `Карточка товара: ${productName}`,
+        store,
+      });
+
+      productForm.show();
+      productForm.loadRecord(record);
+    }
   },
 });
