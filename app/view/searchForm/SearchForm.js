@@ -7,7 +7,7 @@ Ext.define('testSencha.view.searchForm.SearchForm', {
   padding: 10,
 
   defaults: {
-    emptyText: 'Введите фильтр',
+    emptyText: 'Введите фильтр...',
     submitEmptyText: false,
     listeners: {
       specialkey: 'search',

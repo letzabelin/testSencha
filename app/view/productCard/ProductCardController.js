@@ -10,14 +10,20 @@ Ext.define('testSencha.view.productCard.ProductCardController', {
 
   saveData() {
     const formView = this.getView();
+    const record = formView.getForm().getRecord();
     const store = formView.store;
-    const formData = formView.getValues();
 
-    const record = formView.getForm().getRecord().set(formData);
-    store.update(record);
+    formView.updateRecord(record);
 
-    // formView.updateRecord(record);
+    const isDataUpdated = record.dirty;
     formView.close();
-    Ext.Msg.alert('Сообщение', 'Данные успешно изменены!');
+
+    if (isDataUpdated) {
+      Ext.Msg.alert('Сообщение', 'Данные успешно изменены!');
+
+      setTimeout(() => {
+        store.reload();
+      }, 2000);
+    }
   },
 });

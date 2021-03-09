@@ -5,7 +5,7 @@ Ext.define('testSencha.view.productCard.ProductCard', {
 
   title: 'Update',
   width: 400,
-  height: 340,
+  height: 320,
   bodyPadding: 10,
 
   floating: true,

@@ -15,7 +15,7 @@ Ext.define('testSencha.view.loginForm.FormController', {
         xtype: 'app-main',
       });
     } else {
-      Ext.Msg.alert('Ошибка', 'Логин или пароль введены неправильно');
+      Ext.Msg.alert('Ошибка', 'Введен неверный логин или пароль');
     }
   },
 });
