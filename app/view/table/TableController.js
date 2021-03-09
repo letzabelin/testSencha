@@ -3,8 +3,10 @@ Ext.define('testSencha.view.table.TableController', {
 
   alias: 'controller.table',
 
-  openCard(view, cell, cellIndex, record) {
-    if (Number(cellIndex) === 1) {
+  openCard(view, el, cellIndex, record) {
+    const { dataIndex } = view.headerCt.getGridColumns()[cellIndex];
+
+    if (dataIndex === 'name') {
       const store = view.getStore();
       const {
         data: { name: productName },
