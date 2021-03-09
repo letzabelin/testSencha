@@ -18,3 +18,8 @@ $ sencha app build -c classic
 ```
 $ sencha app watch
 ```
+
+Then you can now visit the resulting address displayed in your console. It will usually be found here:
+```
+http://localhost:1841/
+```
