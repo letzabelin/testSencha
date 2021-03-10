@@ -1,19 +1,15 @@
-function handleZeroQuantity(value, meta) {
-  if (Number(value) === 0) {
-    meta.style = 'background-color: red';
-  }
-
-  return value;
-}
-
 Ext.define('testSencha.view.table.Table', {
   extend: 'Ext.grid.Panel',
   xtype: 'table',
   controller: 'table',
 
+  requires: ['testSencha.store.Products'],
+
   title: 'Список товаров',
 
-  store: Ext.create('testSencha.store.Products'),
+  store: {
+    type: 'products',
+  },
 
   forceFit: true,
 
@@ -32,6 +28,16 @@ Ext.define('testSencha.view.table.Table', {
     { text: 'Наименование', dataIndex: 'name' },
     { text: 'Описание', dataIndex: 'description' },
     { text: 'Цена', dataIndex: 'price' },
-    { text: 'Кол-во', dataIndex: 'quantity', renderer: handleZeroQuantity },
+    {
+      text: 'Кол-во',
+      dataIndex: 'quantity',
+      renderer(value, meta) {
+        if (Number(value) === 0) {
+          meta.style = 'background-color: red';
+        }
+
+        return value;
+      },
+    },
   ],
 });
